@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
+
+import Hero from '../components/section/Hero.astro';
+import Stats from '../components/section/Stats.astro';
+import FeaturedPackages from '../components/section/FeaturedPackages.astro';
+import ValueProp from '../components/section/ValueProp.astro';
+import Testimonials from '../components/section/Testimonials.astro';
+import CTA from '../components/section/CTA.astro';
+---
+
+<BaseLayout
+  title={siteConfig.seo.defaultTitle}
+  description={siteConfig.seo.defaultDescription}
+  canonicalURL={siteConfig.url}
+>
+  <div class="flex flex-col">
+    <Hero />
+    <Stats />
+    <FeaturedPackages />
+    <ValueProp />
+    <Testimonials />
+    <CTA />
+  </div>
+</BaseLayout>

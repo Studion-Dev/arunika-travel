@@ -1,0 +1,172 @@
+---
+import { siteConfig } from '../../config/site';
+import { contactContent } from '../../config/content';
+import {
+  Sparkles,
+  MapPin,
+  HeartHandshake,
+  ArrowRight,
+  ShieldCheck,
+} from '@lucide/astro';
+
+const { about } = contactContent;
+---
+
+<section class="overflow-hidden bg-white py-16 lg:py-24" data-reveal="up">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div
+      class="mx-auto grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16"
+    >
+      <!-- =========================================
+          SISI KIRI: BADGE, HEADLINE, DESC & 2 VALUE RINGAN
+         ========================================= -->
+      <div class="space-y-6 lg:col-span-6" data-reveal="right">
+        <!-- Badge & Headline -->
+        <div class="space-y-3">
+          <span
+            class="bg-primary/10 text-primary font-heading inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-wider uppercase"
+          >
+            <Sparkles class="size-3.5" />
+            {about.eyebrow}
+          </span>
+          <h2
+            class="text-secondary font-heading text-3xl leading-tight font-bold tracking-tight sm:text-4xl lg:text-5xl"
+          >
+            {about.title}
+          </h2>
+        </div>
+
+        <!-- Deskripsi -->
+        <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+          {about.description}
+        </p>
+
+        <!-- 2 Value Ringan -->
+        <div class="grid grid-cols-1 gap-4 pt-2 sm:grid-cols-2">
+          <div
+            class="bg-surface border-border flex items-start gap-3 rounded-2xl border p-3.5"
+          >
+            <div
+              class="bg-primary/10 text-primary mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl"
+            >
+              <MapPin class="size-4" />
+            </div>
+            <div>
+              <h3 class="font-heading text-secondary text-sm font-bold">
+                Guide & Driver Lokal
+              </h3>
+              <p class="mt-0.5 text-xs leading-snug text-slate-500">
+                Paham seluk-beluk & hidden gem Jogja.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-surface border-border flex items-start gap-3 rounded-2xl border p-3.5"
+          >
+            <div
+              class="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600"
+            >
+              <HeartHandshake class="size-4" />
+            </div>
+            <div>
+              <h3 class="font-heading text-secondary text-sm font-bold">
+                Layanan Ramah & Hangat
+              </h3>
+              <p class="mt-0.5 text-xs leading-snug text-slate-500">
+                Menyambut layaknya keluarga sendiri.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+          SISI KANAN: BENTO IMAGE GRID (POLA ASIMETRIS / STAGGERED)
+         ========================================= -->
+      <div
+        class="grid grid-cols-2 items-start gap-4 sm:gap-5 lg:col-span-6"
+        data-reveal="left"
+      >
+        <!-- KOLOM KIRI BENTO (Atas Pendek, Bawah Tinggi) -->
+        <div class="space-y-4 sm:space-y-5">
+          <!-- 1. Kiri Atas: Gambar Wisata (Agak Pendek) -->
+          <div
+            class="group relative h-40 overflow-hidden rounded-2xl bg-slate-900 shadow-md sm:h-44 sm:rounded-3xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?q=80&w=800&auto=format&fit=crop"
+              alt="Prambanan Temple Yogyakarta"
+              class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-slate-950/20"></div>
+          </div>
+
+          <!-- 2. Kiri Bawah: Gambar Kuliner / Suasana Jogja (Agak Tinggi) -->
+          <div
+            class="group relative h-56 overflow-hidden rounded-2xl bg-slate-900 shadow-md sm:h-64 sm:rounded-3xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=800&auto=format&fit=crop"
+              alt="Suasana Jogja"
+              class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-slate-950/20"></div>
+          </div>
+        </div>
+
+        <!-- KOLOM KANAN BENTO (Atas Tinggi, Bawah Pendek CTA) -->
+        <div class="space-y-4 sm:space-y-5">
+          <!-- 3. Kanan Atas: Gambar Armada / Trip (Agak Tinggi) -->
+          <div
+            class="group relative h-56 overflow-hidden rounded-2xl bg-slate-900 shadow-md sm:h-76 sm:rounded-3xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=800&auto=format&fit=crop"
+              alt="Perjalanan Arunika Travel"
+              class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-slate-950/20"></div>
+          </div>
+
+          <!-- 4. Kanan Bawah: CTA Card Bagian dari Bento Grid (Agak Pendek) -->
+          <div
+            class="bg-primary group relative flex h-40 flex-col justify-between overflow-hidden rounded-2xl p-5 text-white shadow-xl sm:h-32 sm:rounded-3xl"
+          >
+            <!-- Pattern Background Tipis -->
+            <div
+              class="pointer-events-none absolute -right-6 -bottom-6 size-32 rounded-full bg-white/10 blur-2xl"
+            >
+            </div>
+
+            <div class="relative z-10 space-y-1">
+              <span
+                class="font-heading inline-flex items-center gap-1 text-[10px] font-bold tracking-wider text-amber-300 uppercase sm:text-xs"
+              >
+                <ShieldCheck class="size-3.5" />
+                Respon Cepat
+              </span>
+              <h4
+                class="font-heading text-sm leading-snug font-bold text-white sm:text-base"
+              >
+                Tanya Bebas Seputar Jogja
+              </h4>
+            </div>
+
+            <div class="relative z-10">
+              <a
+                href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Halo%20Arunika%20Travel,%20saya%20mau%20konsultasi%20trip`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-accent text-secondary inline-flex w-full items-center justify-center gap-1.5 rounded-xl px-3.5 py-2.5 text-center text-xs font-bold shadow-md transition-all hover:bg-amber-400"
+              >
+                <span>Hubungi Kami</span>
+                <ArrowRight class="size-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

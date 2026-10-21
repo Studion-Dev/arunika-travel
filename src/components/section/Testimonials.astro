@@ -1,0 +1,79 @@
+---
+import { homeContent } from '../../config/content';
+import { Sparkles, Star, Quote } from '@lucide/astro';
+
+const { testimonials } = homeContent;
+---
+
+<section class="py-20 lg:py-28 bg-surface overflow-hidden" data-reveal="up">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header Terpusat (Centered) -->
+    <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary font-heading">
+        <Sparkles class="size-3.5" />
+        {testimonials.eyebrow}
+      </span>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-secondary font-heading">
+        {testimonials.title}
+      </h2>
+
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        {testimonials.description}
+      </p>
+    </div>
+
+    <!-- Grid / Susunan Card Testimoni Horizontal -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+      {
+        testimonials.items.map((item) => (
+          <div class="bg-white rounded-3xl border border-border p-8 shadow-xs flex flex-col justify-between relative group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            
+            <!-- Ikon Kutipan Dekoratif di Pojok -->
+            <div class="absolute top-6 right-6 text-slate-100 group-hover:text-primary/10 transition-colors pointer-events-none">
+              <Quote class="size-12" />
+            </div>
+
+            <div class="space-y-6 relative z-10">
+              <!-- Bintang Rating di Atas -->
+              <div class="flex items-center gap-1 text-amber-400">
+                {Array.from({ length: item.rating }).map(() => (
+                  <Star class="size-4 fill-amber-400" />
+                ))}
+              </div>
+
+              {/* Deskripsi Ulasan */}
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed italic">
+                &ldquo;{item.quote}&rdquo;
+              </p>
+            </div>
+
+            {/* Avatar & Nama di Bawah */}
+            <div class="pt-6 mt-6 border-t border-border flex items-center gap-4 relative z-10">
+              <div class="size-12 rounded-full overflow-hidden bg-slate-200 shrink-0 ring-2 ring-primary/20">
+                <img
+                  src={item.avatar}
+                  alt={item.name}
+                  class="w-full h-full object-cover"
+                  onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop'"
+                />
+              </div>
+
+              <div>
+                <h3 class="font-bold font-heading text-secondary text-base">
+                  {item.name}
+                </h3>
+                <p class="text-xs text-slate-500 font-medium">
+                  Wisatawan asal {item.origin}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

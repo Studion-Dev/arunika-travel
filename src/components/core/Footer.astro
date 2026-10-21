@@ -1,0 +1,108 @@
+---
+import { siteConfig } from '../../config/site';
+
+const currentYear = new Date().getFullYear();
+const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}`;
+---
+
+<footer class="border-border bg-surface text-secondary border-t">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Kiri: Profil Singkat -->
+      <div class="space-y-4">
+        <a
+          href="/"
+          class="font-heading flex items-center gap-2.5 text-xl font-bold tracking-tight"
+          aria-label={`${siteConfig.name} - Beranda`}
+        >
+          <span
+            class="bg-primary flex size-9 items-center justify-center rounded-xl font-bold text-white shadow-sm"
+            aria-hidden="true"
+          >
+            {siteConfig.name.charAt(0)}
+          </span>
+          <span class="tracking-wide">{siteConfig.name}</span>
+        </a>
+
+        <p class="max-w-sm text-sm leading-relaxed text-slate-600">
+          {siteConfig.description}
+        </p>
+      </div>
+
+      <!-- Tengah: Navigasi -->
+      <nav aria-label="Navigasi footer">
+        <h2
+          class="font-heading mb-4 text-xs font-bold tracking-wider text-slate-900 uppercase"
+        >
+          Navigasi
+        </h2>
+
+        <ul class="space-y-2.5">
+          {
+            siteConfig.navigation.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="hover:text-primary text-sm text-slate-600 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- Kanan: Contact Info -->
+      <div>
+        <h2
+          class="font-heading mb-4 text-xs font-bold tracking-wider text-slate-900 uppercase"
+        >
+          Kontak & Lokasi
+        </h2>
+
+        <ul class="space-y-2.5 text-sm text-slate-600">
+          <li>
+            <strong class="font-medium text-slate-800">Alamat:</strong>
+            {siteConfig.address.street}, {siteConfig.address.city}, {
+              siteConfig.address.province
+            }
+          </li>
+
+          <li>
+            <strong class="font-medium text-slate-800">Email:</strong>
+            <a
+              href={`mailto:${siteConfig.contact.email}`}
+              class="hover:text-primary break-all transition-colors"
+            >
+              {siteConfig.contact.email}
+            </a>
+          </li>
+
+          <li>
+            <strong class="font-medium text-slate-800">WhatsApp:</strong>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-primary transition-colors"
+            >
+              {siteConfig.contact.whatsappFormatted}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bawah: Copyright -->
+    <div
+      class="border-border mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center text-xs text-slate-500 sm:flex-row sm:text-left"
+    >
+      <p>
+        &copy; {currentYear}
+        {siteConfig.name}. All rights reserved.
+      </p>
+      <p>Developed with Astro & Tailwind CSS</p>
+    </div>
+  </div>
+</footer>

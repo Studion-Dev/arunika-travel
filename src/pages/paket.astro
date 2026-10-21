@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import PageHeader from '../components/section/PageHeader.astro';
+import PackagesGrid from '../components/section/PackagesGrid.astro';
+import HowToBook from '../components/section/HowToBook.astro';
+import CTA from '../components/section/CTA.astro';
+import { siteConfig } from '../config/site';
+import { packagesContent } from '../config/content';
+
+const canonicalURL = new URL('/paket', siteConfig.url);
+---
+
+<BaseLayout
+  title={`Paket Wisata | ${siteConfig.name}`}
+  description={packagesContent.header.subtitle}
+  canonicalURL={canonicalURL}
+>
+  <!-- Universal Compact Page Header -->
+  <PageHeader
+    eyebrow="Pilihan Wisata Jogja"
+    title={packagesContent.header.title}
+    description={packagesContent.header.subtitle}
+    bgImage="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?q=80&w=1600&auto=format&fit=crop"
+  />
+  <PackagesGrid />
+  <HowToBook />
+  <CTA />
+</BaseLayout>

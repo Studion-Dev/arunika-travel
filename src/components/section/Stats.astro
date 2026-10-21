@@ -1,0 +1,33 @@
+---
+import { homeContent } from '../../config/content';
+
+const { stats } = homeContent;
+---
+
+<section
+  class="border-border border-y bg-white py-12 sm:py-16"
+  data-reveal="up"
+>
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div
+      class="lg:divide-border grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4 lg:divide-x"
+    >
+      {
+        stats.items.map((item, index) => (
+          <div
+            class:list={[
+              'flex flex-col items-center justify-center px-4 text-center',
+            ]}
+          >
+            <span class="text-primary font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              {item.value}
+            </span>
+            <span class="mt-2 text-xs font-medium text-slate-600 sm:text-sm">
+              {item.label}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

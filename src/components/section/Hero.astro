@@ -1,0 +1,96 @@
+---
+import { siteConfig } from '../../config/site';
+import { homeContent } from '../../config/content';
+import { Sparkles, ArrowRight } from '@lucide/astro';
+
+const { hero } = homeContent;
+---
+
+<section
+  class="bg-surface relative flex min-h-[90vh] flex-col justify-center overflow-hidden pt-20 pb-12 lg:pt-24 lg:pb-16"
+>
+  <!-- Container Full Width Mengikuti Window -->
+  <div class="flex w-full flex-col gap-6 px-4 sm:px-6 lg:gap-8 lg:px-8">
+    <!-- 1. Hero Image (Lebar Full Window, Rounded Sudutnya, Tinggi Compact) -->
+    <div class="w-full" data-reveal="up">
+      <div
+        class="group relative h-[32vh] w-full overflow-hidden rounded-2xl bg-slate-900 shadow-xl sm:h-[38vh] sm:rounded-3xl lg:h-[60vh]"
+      >
+        <!-- Gambar Hero -->
+        <img
+          src={hero.image.src}
+          alt={hero.image.alt}
+          class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+          onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1600&auto=format&fit=crop'"
+        />
+        <!-- Gradient Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"
+        >
+        </div>
+
+        <!-- Badge di dalam gambar -->
+        <div class="absolute top-4 left-4 z-10 sm:top-6 sm:left-6">
+          <span
+            class="text-secondary font-heading inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3.5 py-1.5 text-xs font-semibold tracking-wider uppercase shadow-sm backdrop-blur-md"
+          >
+            <Sparkles class="text-accent size-3.5" />
+            {hero.eyebrow}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Grid Bawah: Kiri (Headline Dominan) & Kanan (Deskripsi & Tombol CTA) -->
+    <div
+      class="grid grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-12"
+      data-reveal="up"
+    >
+      <!-- Kolom Kiri: Headline Dominan -->
+      <div class="lg:col-span-7">
+        <h1
+          class="text-secondary font-heading text-3xl leading-tight font-bold tracking-tight sm:text-4xl lg:text-6xl"
+        >
+          {hero.title}
+        </h1>
+      </div>
+
+      <!-- Kolom Kanan: Deskripsi & Tombol CTA -->
+      <div class="space-y-6 lg:col-span-5">
+        <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+          {hero.description}
+        </p>
+
+        <!-- Tombol CTA Dipindah ke Sini -->
+        <div class="flex flex-wrap items-center gap-3.5 pt-1">
+          <a
+            href={hero.primaryCta.href}
+            class="bg-primary hover:bg-primary-hover inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:shadow-md sm:text-base"
+          >
+            {hero.primaryCta.label}
+            <ArrowRight class="size-4" />
+          </a>
+
+          <a
+            href={hero.secondaryCta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-secondary border-border inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-sm font-semibold shadow-xs transition-all hover:bg-slate-100 sm:text-base"
+          >
+            <!-- Custom WhatsApp SVG -->
+            <svg
+              class="size-4 text-emerald-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-2.972-1.481-4.925-2.652-6.892-6.075-.149-.248-.016-.383.11-.511.112-.112.248-.297.371-.446.124-.149.165-.248.248-.415.083-.166.042-.314-.021-.443-.063-.129-.57-1.375-.782-1.883-.206-.498-.416-.43-.57-.438-.149-.008-.32-.008-.491-.008-.171 0-.448.062-.683.314-.235.252-.899.878-.899 2.142 0 1.264.921 2.482 1.048 2.653.128.172 1.812 2.766 4.391 3.878 2.579 1.112 2.579.741 3.05.692.47-.049 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+              ></path>
+            </svg>
+            Konsultasi WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

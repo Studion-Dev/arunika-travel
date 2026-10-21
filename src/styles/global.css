@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Typography Variables */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Comfortaa', cursive, system-ui, sans-serif;
+
+  /* Color Palette - Arunika Travel Yogyakarta */
+  --color-primary: #2563eb; /* Ocean Blue */
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #0f172a; /* Deep Slate Text */
+  --color-accent: #f59e0b; /* Warm Sunrise Amber */
+  --color-accent-hover: #d97706;
+  --color-surface: #fafaf9; /* Warm Stone Surface */
+  --color-surface-card: #ffffff;
+  --color-border: #e7e5e4;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background-color: var(--color-surface);
+    color: var(--color-secondary);
+  }
+
+  /* Utility font heading biar gampang dipanggil via CSS class / Tailwind */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  img,
+  video {
+    height: auto;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========================================
+   SCROLL REVEAL ANIMATIONS
+======================================== */
+
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+[data-reveal='left'] {
+  transform: translate3d(-24px, 0, 0);
+}
+
+[data-reveal='right'] {
+  transform: translate3d(24px, 0, 0);
+}
+
+[data-reveal='up'] {
+  transform: translate3d(0, 24px, 0);
+}
+
+[data-reveal='down'] {
+  transform: translate3d(0, -24px, 0);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

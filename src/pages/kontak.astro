@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import PageHeader from '../components/section/PageHeader.astro';
+import About from '../components/section/About.astro';
+import ContactSection from '../components/section/ContactSection.astro';
+import { siteConfig } from '../config/site';
+import { contactContent } from '../config/content';
+
+const canonicalURL = new URL('/kontak', siteConfig.url);
+---
+
+<BaseLayout
+  title={`Kontak Kami | ${siteConfig.name}`}
+  description={contactContent.header.subtitle}
+  canonicalURL={canonicalURL}
+>
+  <!-- Universal Compact Page Header -->
+  <PageHeader
+    eyebrow="Layanan 24/7"
+    title={contactContent.header.title}
+    description={contactContent.header.subtitle}
+    bgImage="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=1600&auto=format&fit=crop"
+  />
+  <About />
+  <ContactSection />
+</BaseLayout>

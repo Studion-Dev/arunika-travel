@@ -1,0 +1,66 @@
+---
+import { Sparkles } from '@lucide/astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  bgImage?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  bgImage = 'https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1600&auto=format&fit=crop',
+} = Astro.props;
+---
+
+<section
+  class="bg-surface overflow-hidden pt-20 pb-8 lg:pt-24"
+  data-reveal="up"
+>
+  <!-- Container Berjarak Kanan-Kiri -->
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <!-- Wrapper Image Rounded Pendek -->
+    <div
+      class="group relative flex h-56 w-full items-center justify-center overflow-hidden rounded-2xl bg-slate-900 p-6 text-center shadow-lg sm:h-64 sm:rounded-3xl sm:p-10 lg:h-72"
+    >
+      <!-- Background Image -->
+      <img
+        src={bgImage}
+        alt={title}
+        class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+      />
+
+      <!-- Overlay Gelap Tipis Biar Teks Standout -->
+      <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-[1px]"></div>
+
+      <!-- Centered Content -->
+      <div class="relative z-10 mx-auto max-w-3xl space-y-3">
+        {
+          eyebrow && (
+            <div>
+              <span class="font-heading inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold tracking-wider text-amber-300 uppercase backdrop-blur-md">
+                <Sparkles class="size-3.5" />
+                {eyebrow}
+              </span>
+            </div>
+          )
+        }
+
+        <h1
+          class="font-heading text-2xl leading-tight font-bold tracking-tight text-white sm:text-3xl lg:text-4xl"
+        >
+          {title}
+        </h1>
+
+        <p
+          class="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200 sm:text-base"
+        >
+          {description}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
