@@ -1,12 +1,12 @@
 /**
- * Content placeholder data for Arunika Travel Website
+ * Content data for Arunika Travel Website
  */
 
 // ==========================================
 // 1. BERANDA (index.astro) - 6 SECTIONS
 // ==========================================
 export const homeContent = {
-  // Section 1: Hero
+  // Section 1: Hero (Tanpa src image string karena menggunakan Astro Assets lokal)
   hero: {
     eyebrow: 'Matahari Terbit Istimewa Jogja',
     title: 'Petualangan Autentik di Istimewanya Yogyakarta',
@@ -21,8 +21,7 @@ export const homeContent = {
       href: 'https://wa.me/6281234567890?text=Halo%20Arunika%20Travel,%20saya%20mau%20tanya%20paket%20wisata%20Jogja',
     },
     image: {
-      src: '/images/hero-jogja.jpg',
-      alt: 'Pemandangan Sunset Candi Prambanan Yogyakarta',
+      alt: 'Pemandangan Wisata Yogyakarta Arunika Travel',
     },
   },
 
@@ -36,7 +35,7 @@ export const homeContent = {
     ],
   },
 
-  // Section 3: Paket Terlaris (Featured Packages)
+  // Section 3: Paket Terlaris (Featured Packages - 3 Items di Beranda)
   featuredPackages: {
     eyebrow: 'Favorit Wisatawan',
     title: 'Paket Wisata Jogja Terlaris',
@@ -44,54 +43,58 @@ export const homeContent = {
       'Destinasi pilihan paling populer yang dirancang khusus untuk kenyamanan liburan keluarga dan rombongan Anda.',
     items: [
       {
-        id: 'one-day-heritage',
-        title: 'One Day Tour Heritage & Merapi',
-        duration: '1 Hari',
+        id: 'one-day-heritage-merapi',
+        title: 'One Day Heritage & Merapi Jeep',
+        duration: '1 Hari (08.00 - 20.00)',
         price: 'Rp 350.000',
         priceUnit: '/ pax',
-        highlights: [
-          'Candi Borobudur / Prambanan',
-          'Lava Tour Merapi (Jeep)',
-          'Belanja Souvenir Malioboro',
+        minPax: 'Min. 4 Pax',
+        description:
+          'Eksplorasi warisan sejarah Candi Borobudur/Prambanan dan petualangan memicu adrenalin Jeep Lava Tour Merapi.',
+        inclusions: [
+          'Transport AC Pariwisata & Driver',
+          'Sewa Jeep Merapi Short Route',
+          'Tiket Masuk Candi & Air Mineral',
         ],
-        image: '/images/merapi-lava-tour.jpg',
         imageAlt: 'Lava Tour Merapi Jogja',
         badge: 'Terlaris',
-        ctaHref: '/paket#one-day-heritage',
+        ctaHref: '/paket',
       },
       {
-        id: 'adventure-nature-3d2n',
-        title: 'Adventure & Nature 3D2N',
-        duration: '3 Hari 2 Malam',
-        price: 'Rp 1.250.000',
+        id: 'one-day-exotic-beach',
+        title: 'One Day Gunungkidul Beach Experience',
+        duration: '1 Hari (07.00 - 19.00)',
+        price: 'Rp 325.000',
         priceUnit: '/ pax',
-        highlights: [
-          'Eksplor Goa Jomblang',
-          'Gondola Pantai Timang',
-          'Sunset Obelix Hills',
-          'Hotel Bintang 3 + Makan',
+        minPax: 'Min. 4 Pax',
+        description:
+          'Menikmati eksotisme pantai pasir putih Gunungkidul (Drini & Mesra) serta sunset menawan di HeHa Ocean View.',
+        inclusions: [
+          'Transport Private AC & Driver',
+          'Tiket Masuk Semua Pantai',
+          'Air Mineral & Spot Foto',
         ],
-        image: '/images/goa-jomblang.jpg',
-        imageAlt: 'Petualangan Caving Goa Jomblang',
-        badge: 'Rekomendasi',
-        ctaHref: '/paket#adventure-nature-3d2n',
+        imageAlt: 'Keindahan Pantai Gunungkidul',
+        badge: 'Favorit',
+        ctaHref: '/paket',
       },
       {
         id: 'culture-culinary-2d1n',
-        title: 'Premium Culture & Culinary 2D1N',
+        title: '2D1N Culture & Culinary Heritage',
         duration: '2 Hari 1 Malam',
         price: 'Rp 850.000',
         priceUnit: '/ pax',
-        highlights: [
-          'Kraton Jogja & Tamansari',
-          'Tour Kuliner Gudeg Yu Djum',
-          'Sunset Tebing Breksi',
-          'Hotel Bintang 3',
+        minPax: 'Min. 2 Pax',
+        description:
+          'Perpaduan sempurna antara wisata sejarah Kraton Jogja, Tamansari, dan tour kuliner khas Gudeg Yu Djum.',
+        inclusions: [
+          'Hotel Bintang 3 (1 Malam)',
+          'Makan 4x Sesuai Program',
+          'Transport Private & Guide Lokal',
         ],
-        image: '/images/kraton-jogja.jpg',
         imageAlt: 'Wisata Budaya Kraton Yogyakarta',
-        badge: 'Hemat',
-        ctaHref: '/paket#culture-culinary-2d1n',
+        badge: 'Kuliner',
+        ctaHref: '/paket',
       },
     ],
   },
@@ -187,7 +190,7 @@ export const packagesContent = {
       'Temukan paket liburan terfavorit yang dirancang khusus untuk memenuhi kebutuhan perjalanan Anda.',
   },
 
-  // Section 2: Paket Grid
+  // Section 2: Paket Grid (Lengkap 4 Varian Utama)
   packagesGrid: {
     categories: [
       { id: 'all', label: 'Semua Paket' },
@@ -198,55 +201,55 @@ export const packagesContent = {
     ],
     items: [
       {
-        id: 'one-day-heritage',
+        id: 'one-day-heritage-merapi',
         category: '1-day',
-        title: 'One Day Heritage & Merapi',
+        title: 'One Day Heritage & Merapi Jeep',
         duration: '1 Hari (08.00 - 20.00)',
         price: 'Rp 350.000',
+        priceUnit: '/ pax',
         minPax: 'Min. 4 Pax',
         description:
-          'Eksplorasi warisan sejarah dan petualangan memicu adrenalin di kaki Gunung Merapi.',
+          'Eksplorasi warisan sejarah Candi Borobudur/Prambanan dan petualangan memicu adrenalin Jeep Lava Tour Merapi.',
         inclusions: [
-          'Transport AC Standar Pariwisata',
-          'Driver merangkap Guide',
-          'Tiket Masuk Candi & Jeep Merapi',
-          'Air Mineral & Parkir',
+          'Transport AC Pariwisata & Driver',
+          'Sewa Jeep Merapi Short Route',
+          'Tiket Masuk Candi & Air Mineral',
         ],
-        image: '/images/merapi-lava-tour.jpg',
+        badge: 'Terlaris',
       },
       {
-        id: 'one-day-beach',
+        id: 'one-day-exotic-beach',
         category: '1-day',
-        title: 'One Day Exotic Gunungkidul Beaches',
+        title: 'One Day Gunungkidul Beach Experience',
         duration: '1 Hari (07.00 - 19.00)',
         price: 'Rp 325.000',
+        priceUnit: '/ pax',
         minPax: 'Min. 4 Pax',
         description:
-          'Menikmati keindahan pasir putih Pantai Drini, Mesra, dan sunset menawan di HeHa Ocean View.',
+          'Menikmati eksotisme pantai pasir putih Gunungkidul (Drini & Mesra) serta sunset menawan di HeHa Ocean View.',
         inclusions: [
-          'Transport AC Pariwisata',
-          'Driver & BBM',
-          'Tiket Masuk Semua Destinasi',
-          'Air Mineral',
+          'Transport Private AC & Driver',
+          'Tiket Masuk Semua Pantai',
+          'Air Mineral & Spot Foto',
         ],
-        image: '/images/pantai-gunungkidul.jpg',
+        badge: 'Favorit',
       },
       {
         id: 'culture-culinary-2d1n',
         category: '2d1n',
-        title: '2D1N Culture & Culinary Experience',
+        title: '2D1N Culture & Culinary Heritage',
         duration: '2 Hari 1 Malam',
         price: 'Rp 850.000',
+        priceUnit: '/ pax',
         minPax: 'Min. 2 Pax',
         description:
-          'Perpaduan sempurna antara wisata sejarah, kerajinan lokal, dan santap kuliner khas Jogja.',
+          'Perpaduan sempurna antara wisata sejarah Kraton Jogja, Tamansari, dan tour kuliner khas Gudeg Yu Djum.',
         inclusions: [
           'Hotel Bintang 3 (1 Malam)',
           'Makan 4x Sesuai Program',
-          'Transport Private AC',
-          'Tiket Wisata & Guide',
+          'Transport Private & Guide Lokal',
         ],
-        image: '/images/kraton-jogja.jpg',
+        badge: 'Kuliner',
       },
       {
         id: 'adventure-nature-3d2n',
@@ -254,16 +257,16 @@ export const packagesContent = {
         title: '3D2N Ultimate Jogja Adventure',
         duration: '3 Hari 2 Malam',
         price: 'Rp 1.250.000',
+        priceUnit: '/ pax',
         minPax: 'Min. 2 Pax',
         description:
-          'Pengalaman lengkap menjelajahi goa, pantai ekstrem, candi ikonik, dan pusat perbelanjaan.',
+          'Pengalaman ekstrem menjelajahi caving Goa Jomblang, Gondola Pantai Timang, dan Obelix Hills.',
         inclusions: [
           'Hotel Bintang 3 (2 Malam)',
-          'Makan 7x Sesuai Program',
-          'Peralatan Caving & Gondola',
-          'Penjemputan YIA/Stasiun',
+          'Peralatan Caving & Safety Gear',
+          'Penjemputan Bandara YIA / Stasiun',
         ],
-        image: '/images/goa-jomblang.jpg',
+        badge: 'Petualangan',
       },
     ],
   },

@@ -2,6 +2,10 @@
 import { siteConfig } from '../../config/site';
 import { homeContent } from '../../config/content';
 import { Sparkles, ArrowRight } from '@lucide/astro';
+import { Image } from 'astro:assets';
+
+// Import aset gambar lokal menggunakan Astro Assets agar teroptimasi
+import heroImageFile from '../../assets/images/hero.jpg';
 
 const { hero } = homeContent;
 ---
@@ -11,18 +15,21 @@ const { hero } = homeContent;
 >
   <!-- Container Full Width Mengikuti Window -->
   <div class="flex w-full flex-col gap-6 px-4 sm:px-6 lg:gap-8 lg:px-8">
-    <!-- 1. Hero Image (Lebar Full Window, Rounded Sudutnya, Tinggi Compact) -->
+    <!-- 1. Hero Image dengan Astro Assets (Lebar Full Window, Rounded Sudutnya, Tinggi Compact) -->
     <div class="w-full" data-reveal="up">
       <div
         class="group relative h-[32vh] w-full overflow-hidden rounded-2xl bg-slate-900 shadow-xl sm:h-[38vh] sm:rounded-3xl lg:h-[60vh]"
       >
-        <!-- Gambar Hero -->
-        <img
-          src={hero.image.src}
-          alt={hero.image.alt}
+        <!-- Komponen Image dari Astro untuk optimasi otomatis -->
+        <Image
+          src={heroImageFile}
+          alt={hero.image.alt || 'Pemandangan Wisata Yogyakarta Arunika Travel'}
           class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-          onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1600&auto=format&fit=crop'"
+          quality={80}
+          format="webp"
+          loading="eager"
         />
+
         <!-- Gradient Overlay -->
         <div
           class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"
@@ -49,7 +56,7 @@ const { hero } = homeContent;
       <!-- Kolom Kiri: Headline Dominan -->
       <div class="lg:col-span-7">
         <h1
-          class="text-secondary font-heading text-3xl leading-tight font-bold tracking-tight sm:text-4xl lg:text-6xl"
+          class="text-secondary font-heading text-3xl leading-tight font-bold tracking-tight sm:text-4xl lg:text-5xl"
         >
           {hero.title}
         </h1>
@@ -57,11 +64,11 @@ const { hero } = homeContent;
 
       <!-- Kolom Kanan: Deskripsi & Tombol CTA -->
       <div class="space-y-6 lg:col-span-5">
-        <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+        <p class="text-sm leading-relaxed text-slate-600">
           {hero.description}
         </p>
 
-        <!-- Tombol CTA Dipindah ke Sini -->
+        <!-- Tombol CTA -->
         <div class="flex flex-wrap items-center gap-3.5 pt-1">
           <a
             href={hero.primaryCta.href}
@@ -79,7 +86,10 @@ const { hero } = homeContent;
           >
             <!-- Custom WhatsApp SVG -->
             <svg
-              class="size-4 text-emerald-600"
+              class="size-4 shrink-0 text-emerald-600"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
